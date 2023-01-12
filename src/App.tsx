@@ -6,8 +6,8 @@ import './App.css';
 function App() {
   return (
     <div className='App'>
-      <ProjectList></ProjectList>
-      {/*<Login/>*/}
+      {/*<ProjectList></ProjectList>*/}
+      <Login/>
     </div>
   );
 }
