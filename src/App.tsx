@@ -6,11 +6,10 @@ import './App.css';
 
 function App() {
   const {userInfo} = useAuth();
-  console.log(Object.keys(userInfo))
   return (
     <div className='App'>
       {
-        Object.keys(userInfo).length ? <Authenticated/> : <UnAuthenticated/>
+        userInfo && Object.keys(userInfo).length ? <Authenticated/> : <UnAuthenticated/>
       }
     </div>
   );

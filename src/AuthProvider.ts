@@ -20,11 +20,17 @@ export const login:Login = (data:UserLoginInfo) => {
         },
         body:JSON.stringify(data),
     }).then(async (response) =>{
+        const data = await response.json();
+        if(response.status === 400){
+            return Promise.reject(data);
+        }
         if(response.ok){
-            return storeUserInfo(await response.json());
+            return storeUserInfo(data);
         }else{
             return Promise.reject('登录发生错误')
         }
+    }).catch((res:any) => {
+        alert(res?.message)
     })
 }
 /*注册*/
@@ -36,11 +42,17 @@ export const register:Register = (data:UserLoginInfo) => {
         },
         body:JSON.stringify(data),
     }).then(async (response) =>{
+        const data = await response.json();
+        if(response.status === 400){
+            return Promise.reject(data);
+        }
         if(response.ok){
-            return storeUserInfo(await response.json());
+            return storeUserInfo(data);
         }else{
             return Promise.reject('注册发生错误')
         }
+    }).catch((res:any) => {
+        alert(res?.message)
     })
 }
 

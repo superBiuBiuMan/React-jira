@@ -3,6 +3,7 @@ import List from "./list";
 import Panel from "./panel";
 import qs from "qs";
 import { cleanEmptyObj, useDebounce, useMount } from "../../utils";
+import {useHttp} from "../../utils/http";
 const apiUrl = process.env.REACT_APP_API_URL;//获取api环境
 export interface ListData {
   id:number,
@@ -28,19 +29,23 @@ const ProjectListScreen = () => {
   const [users,setUsers] = useState<Users[]>([])
   /*请求列表数据*/
   const [listData,setListData] = useState<ListData[]>([])
-
+  /*请求数据-携带token*/
+  const client = useHttp();
   /*
   *  当搜索条件发生变化的时候,就更新
   * */
   useEffect( () => {
-    /*请求获取列表数据*/
-    fetch(`${apiUrl}/projects?${qs.stringify(cleanEmptyObj(debounceValue))}`).then(res => {
-      if(res.ok){
-        return res.json();
-      }
-    }).then((result:ListData[])=> {
-      setListData(result)
+    client('projects',{data:cleanEmptyObj(debounceValue)}).then(res => {
+      setListData(res)
     })
+    /*请求获取列表数据*/
+    //fetch(`${apiUrl}/projects?${qs.stringify(cleanEmptyObj(debounceValue))}`).then(res => {
+    //  if(res.ok){
+    //    return res.json();
+    //  }
+    //}).then((result:ListData[])=> {
+    //  setListData(result)
+    //})
     ///*请求获取列表数据*/
     //try{
     //  const response = await fetch(`${apiUrl}/projects?${qs.stringify(cleanEmptyObj(debounceValue))}`)
