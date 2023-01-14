@@ -1,10 +1,8 @@
-import React, { useState,useEffect } from "react";
+import React, {useState, useEffect, useCallback} from "react";
 import List from "./list";
 import Panel from "./panel";
-import qs from "qs";
 import { cleanEmptyObj, useDebounce, useMount } from "../../utils";
 import {useHttp} from "../../utils/http";
-const apiUrl = process.env.REACT_APP_API_URL;//获取api环境
 export interface ListData {
   id:number,
   personId:number,
@@ -24,7 +22,7 @@ const ProjectListScreen = () => {
     name:'',
     personId:'',
   })
-  const debounceValue = useDebounce(params,2000);
+  const debounceValue = useDebounce(params,100);
   /*请求的用户列表数据*/
   const [users,setUsers] = useState<Users[]>([])
   /*请求列表数据*/
@@ -38,39 +36,15 @@ const ProjectListScreen = () => {
     client('projects',{data:cleanEmptyObj(debounceValue)}).then(res => {
       setListData(res)
     })
-    /*请求获取列表数据*/
-    //fetch(`${apiUrl}/projects?${qs.stringify(cleanEmptyObj(debounceValue))}`).then(res => {
-    //  if(res.ok){
-    //    return res.json();
-    //  }
-    //}).then((result:ListData[])=> {
-    //  setListData(result)
-    //})
-    ///*请求获取列表数据*/
-    //try{
-    //  const response = await fetch(`${apiUrl}/projects?${qs.stringify(cleanEmptyObj(debounceValue))}`)
-    //  if(response.ok){
-    //    const result = await response.json();
-    //    setListData(result)
-    //  }
-    //}catch (e){
-    //  console.log(e);
-    //}
   },[debounceValue])
 
   /*
   * 初次加载用户(只需要执行一次)
   * */
   useMount(async () => {
-    try{
-      const response = await fetch(`${apiUrl}/users`)
-      if(response.ok){
-        const result = await response.json();
-        setUsers(result)
-      }
-    }catch (e) {
-      console.log(e);
-    }
+    client('users').then(res => {
+      setUsers(res)
+    })
   })
   return (
     <div>

@@ -1,17 +1,16 @@
 import qs from "qs"
 import {useAuth} from "../context/authContext";
 import * as auth from "../AuthProvider"
-import {loginOut} from "../AuthProvider";
 const apiUrl = process.env.REACT_APP_API_URL;
 export interface Config extends RequestInit{
   token?:string,//登录后的token,
   data?:object,
 }
-const http =  (url:string,{data,token,headers,...customConfig}:Config) => {
+const http =  (url:string,{data,token,headers,...customConfig}:Config = {}) => {
   const config:RequestInit = {
     method:'GET',
     headers:{
-      Authorization: token ? `Bear ${token}` : '',
+      Authorization: token ? `Bearer ${token}` : '',
       'Content-Type': data? 'application/json' : '',
     },
     ...customConfig,

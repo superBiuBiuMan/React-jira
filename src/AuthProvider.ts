@@ -10,7 +10,8 @@ export const storeUserInfo:StoreUserInfo = (data:any) => {
     window.localStorage.setItem(localStorageKey,data.user.token ?? '');
     return data;
 }
-
+/*获取用户信息*/
+export const getToken = ()=> window.localStorage.getItem(localStorageKey);
 /*登录*/
 export const login:Login = (data:UserLoginInfo) => {
     return fetch(`${apiUrl}/login`,{
