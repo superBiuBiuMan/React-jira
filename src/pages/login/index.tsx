@@ -1,9 +1,8 @@
 import React, { FormEvent } from "react";
 import {useAuth} from "../../context/authContext";
 import {UserLoginInfo} from "../../types/user";
-const apiUrl = process.env.REACT_APP_API_URL;
 const Login = () => {
-  const { login:loginHandle,userInfo } = useAuth();
+  const { login:loginHandle } = useAuth();
   const login = (params:UserLoginInfo) => {
       loginHandle(params);
   }
@@ -18,7 +17,6 @@ const Login = () => {
   }
 return (
 <form onSubmit={handleSubmit}>
-    <div>欢迎您:{userInfo.name }</div>
     <label htmlFor='username'>用户名</label>
     <input type='text' id='username' />
     <br/>

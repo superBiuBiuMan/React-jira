@@ -15,7 +15,7 @@ const List = ({listData,users}:ListInterface) => {
       </thead>
       <tbody>
         {
-          listData.map(item => {
+          listData?.map(item => {
             return (
               <tr key={item.id}>
                 <td>{ item.name }</td>

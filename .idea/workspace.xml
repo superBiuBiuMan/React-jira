@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b623434-ae6d-4709-b52a-4be3de8379c5" name="变更" comment="cli:&#10;1.重构">
-      <change afterPath="$PROJECT_DIR$/src/AuthProvider.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context/authContext.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea啊/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea啊/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+    <list default="true" id="8b623434-ae6d-4709-b52a-4be3de8379c5" name="变更" comment="feat:&#10;1.useContext的书写&#10;2.localStorage信息的存储">
+      <change afterPath="$PROJECT_DIR$/src/authenticated.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/register/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/unAuthenticated/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,14 +17,21 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -59,7 +64,7 @@
     "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
+    "settings.editor.selected.configurable": "preferences.sourceCode.TypeScript",
     "ts.external.directory.path": "D:\\develop\\phpstudy_pro\\WWW\\React-cli\\react_17_projectJira\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -89,7 +94,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1673529651602</updated>
-      <workItem from="1673529655785" duration="4027000" />
+      <workItem from="1673529655785" duration="4720000" />
+      <workItem from="1673573420359" duration="5000" />
+      <workItem from="1673663812414" duration="1691000" />
     </task>
     <task id="LOCAL-00001" summary="cli:&#10;1.重构">
       <created>1673529710513</created>
@@ -105,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673529813092</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat:&#10;1.useContext的书写&#10;2.localStorage信息的存储">
+      <created>1673534414766</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1673534414766</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,6 +140,7 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="cli:&#10;1.重构" />
-    <option name="LAST_COMMIT_MESSAGE" value="cli:&#10;1.重构" />
+    <MESSAGE value="feat:&#10;1.useContext的书写&#10;2.localStorage信息的存储" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:&#10;1.useContext的书写&#10;2.localStorage信息的存储" />
   </component>
 </project>

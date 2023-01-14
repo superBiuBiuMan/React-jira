@@ -17,7 +17,7 @@ export const AuthProvider = ({children}:{children:ReactNode}) => {
     })
     const loginOut = () => providerAuth.loginOut()
     /*注册*/
-    const register = (data:UserLoginInfo) => providerAuth.login(data).then((res:any) => {
+    const register = (data:UserLoginInfo) => providerAuth.register(data).then((res:any) => {
         setUserInfo(res?.user)
     })
     return <AuthContext.Provider children={children} value={{userInfo,login,loginOut,register}}/>
