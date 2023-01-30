@@ -1,5 +1,6 @@
 import React from "react";
 import { Params, Users } from "./index";
+import {Input,Form,Select} from "antd"
 export interface Panel {
   params:Params,
   users:Users[],
@@ -7,22 +8,19 @@ export interface Panel {
 }
 const List = ({params,users,setParams}:Panel) => {
   return (
-    <form>
-      <input type='text' value={params.name} placeholder={'请输入要搜索的名称'}  onChange={event => setParams({ ...params,name:event.target.value })}/>
-      <select value={params.personId} onChange={event => setParams({
-        ...params,
-        personId: event.target.value,
-      })}>
-        <option value={''}>全部</option>
-        {
-          users.map(item => {
-            return (
-              <option value={item.id} key={item.id}>{ item.name }</option>
-            )
-          })
-        }
-      </select>
-    </form>
+      <Form>
+        <Form.Item>
+          <Input value={params.name} placeholder={'请输入要搜索的名称'}  onChange={event => setParams({ ...params,name:event.target.value })}/>
+          <Select value={params.personId} onChange={ value => setParams({ ...params,personId:value })}>
+            <Select.Option value={""}>全部</Select.Option>
+            {
+              users.map(item => (
+                  <Select.Option key={item.id} value={item.id}>{ item.name }</Select.Option>
+              ))
+            }
+          </Select>
+        </Form.Item>
+      </Form>
   );
 };
 
