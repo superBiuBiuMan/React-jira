@@ -1,18 +1,19 @@
 import React,{useState} from 'react';
 import Login from "../login";
 import Register from "../register";
+import {Button,Card} from "antd";
 
 const UnAuthenticated = () => {
     const [isRegister,setIsRegister] = useState(false);
     return (
-        <div>
+        <Card style={{width:'300px',margin:'40px auto'}}>
             {
                 isRegister ? <Register/> : <Login/>
             }
-            <button onClick={() => setIsRegister(!isRegister)}>
+            <Button onClick={() => setIsRegister(!isRegister)}>
               {isRegister ? '已有账号,点击登录' : '还没有账号?点击注册' }
-            </button>
-        </div>
+            </Button>
+        </Card>
     );
 };
 
