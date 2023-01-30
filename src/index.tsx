@@ -3,17 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { loadDevTools } from "jira-dev-tool";
-import AppProvider from "./context";
+import { loadDevTools } from 'jira-dev-tool';
+import 'antd/dist/reset.css';
+import AppProvider from './context';
 loadDevTools(() => {
-    ReactDOM.render(
-        <React.StrictMode>
-            <AppProvider>
-                <App />
-            </AppProvider>
-        </React.StrictMode>,
-        document.getElementById("root")
-    );
+  ReactDOM.render(
+    <React.StrictMode>
+      <AppProvider>
+        <App />
+      </AppProvider>
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
 });
 //
 //ReactDOM.render(

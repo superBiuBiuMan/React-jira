@@ -10,6 +10,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "antd": "^5.1.6",
     "husky": "4.2.5",
     "jira-dev-tool": "^1.7.61",
     "qs": "^6.10.1",
@@ -53,12 +54,6 @@
     "json-server": "^0.16.3",
     "lint-staged": "10.2.9",
     "prettier": "2.2.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,less,md}": [
