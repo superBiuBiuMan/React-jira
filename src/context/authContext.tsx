@@ -30,7 +30,10 @@ export const AuthProvider = ({children}:{children:ReactNode}) => {
     const login = (data:UserLoginInfo) => providerAuth.login(data).then((res:any) => {
         setUserInfo(res?.user)
     })
-    const loginOut = () => providerAuth.loginOut()
+    const loginOut = () => providerAuth.loginOut().then(() => {
+        //刷新当前页面
+        window.location.reload();
+    })
     /*注册*/
     const register = (data:UserLoginInfo) => providerAuth.register(data).then((res:any) => {
         setUserInfo(res)

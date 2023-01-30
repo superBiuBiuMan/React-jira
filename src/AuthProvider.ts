@@ -58,6 +58,6 @@ export const register:Register = (data:UserLoginInfo) => {
 }
 
 /*登出*/
-export const loginOut = () => {
-    window.localStorage.removeItem(localStorageKey)
+export const loginOut = async () => {
+    return window.localStorage.removeItem(localStorageKey)
 }
