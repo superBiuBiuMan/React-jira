@@ -1,7 +1,8 @@
 import React, { FormEvent } from "react";
 import {useAuth} from "../../context/authContext";
 import {UserLoginInfo} from "../../types/user";
-import { Button, Form, Input } from 'antd';
+import { Form, Input } from 'antd';
+import {LongButton} from "../unAuthenticated";
 const Register = () => {
     const { register:registerHandle } = useAuth();
     const register = (params:UserLoginInfo) => {
@@ -22,10 +23,9 @@ const Register = () => {
           </Form.Item>
 
           <Form.Item>
-            <Button htmlType={'submit'}>注册</Button>
+            <LongButton htmlType={'submit'} type={'primary'}>注册</LongButton>
           </Form.Item>
         </Form>
     );
 };
-
 export default Register;

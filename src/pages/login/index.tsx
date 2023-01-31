@@ -2,6 +2,8 @@ import React from 'react';
 import { useAuth } from '../../context/authContext';
 import { UserLoginInfo } from '../../types/user';
 import { Button, Form, Input } from 'antd';
+import {LongButton} from "../unAuthenticated";
+
 const Login = () => {
   const { login: loginHandle } = useAuth();
   const login = (params: UserLoginInfo) => {
@@ -20,7 +22,7 @@ const Login = () => {
         <Input type={'password'} placeholder={'请输入密码'} />
       </Form.Item>
       <Form.Item >
-        <Button type={'primary'} htmlType={'submit'}>登录</Button>
+        <LongButton type={'primary'} htmlType={'submit'}>登录</LongButton>
       </Form.Item>
     </Form>
   );
