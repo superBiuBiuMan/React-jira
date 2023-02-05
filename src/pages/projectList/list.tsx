@@ -1,12 +1,15 @@
 import React from "react";
 import { ListData,Users } from "./index";
-import {Table} from "antd";
+import {Table, TableProps} from "antd";
 import dayjs from "dayjs";
-export interface ListInterface {
-  listData:ListData[]
-  users:Users[],
+
+export interface ListInterface extends TableProps<ListData> {
+  users:Users[],//用户信息
 }
-const List = ({listData,users}:ListInterface) => {
+
+
+const List = ({ users,...tableProps}:ListInterface) => {
+  /*列数据*/
   const columns = [
     {
       title:'名称',
@@ -32,8 +35,7 @@ const List = ({listData,users}:ListInterface) => {
     }
   ]
   return (
-      <Table pagination={false} dataSource={listData} rowKey={(record) => record.id} columns={columns}>
-      </Table>
+      <Table pagination={false}  rowKey={(record) => record.id} columns={columns} {...tableProps}></Table>
   );
 };
 
