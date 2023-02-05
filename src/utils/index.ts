@@ -6,16 +6,19 @@ export const isFalse = (value:any):boolean => value === 0 ? false : !value;
 export const isVoid = (value:unknown) => value === undefined || value == null || value === '';
 
 /*清除空对象*/
-export const cleanEmptyObj = (obj: {[key:string]:unknown}) => {
-  const temp = {...obj};
-  Object.keys(temp).forEach(key => {
-    const value = temp[key]
-    if(isVoid(value)){
-      delete temp[key]
+export const cleanEmptyObj = (object?: { [key: string]: unknown }) => {
+  if (!object) {
+    return {};
+  }
+  const result = { ...object };
+  Object.keys(result).forEach((key) => {
+    const value = result[key];
+    if (isVoid(value)) {
+      delete result[key];
     }
-  })
-  return temp;
-}
+  });
+  return result;
+};
 
 /*只在初次挂载执行*/
 export const useMount = (callback:Function) => {
