@@ -1,6 +1,7 @@
 import React from "react";
 import { Params, Users } from "./index";
 import {Input,Form,Select} from "antd"
+
 export interface Panel {
   params:Params,
   users:Users[],
@@ -8,9 +9,11 @@ export interface Panel {
 }
 const List = ({params,users,setParams}:Panel) => {
   return (
-      <Form>
+      <Form style={{marginBottom: '2rem'}} layout={'inline'}>
         <Form.Item>
           <Input value={params.name} placeholder={'请输入要搜索的名称'}  onChange={event => setParams({ ...params,name:event.target.value })}/>
+        </Form.Item>
+        <Form.Item>
           <Select value={params.personId} onChange={ value => setParams({ ...params,personId:value })}>
             <Select.Option value={""}>全部</Select.Option>
             {

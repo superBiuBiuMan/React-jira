@@ -7,6 +7,8 @@ export interface ListData {
   id:number,
   personId:number,
   name:string,
+  organization:string,//部门
+  created:string,//创建时间
 }
 export interface Users {
   id:number,//唯一标识
