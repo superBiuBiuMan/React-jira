@@ -3,12 +3,14 @@ import { useEffect, useState } from "react";
 /*判断是否为布尔值*/
 export const isFalse = (value:any):boolean => value === 0 ? false : !value;
 
+export const isVoid = (value:unknown) => value === undefined || value == null || value === '';
+
 /*清除空对象*/
-export const cleanEmptyObj = (obj:any) => {
+export const cleanEmptyObj = (obj: {[key:string]:unknown}) => {
   const temp = {...obj};
   Object.keys(temp).forEach(key => {
     const value = temp[key]
-    if(isFalse(value)){
+    if(isVoid(value)){
       delete temp[key]
     }
   })
@@ -19,6 +21,8 @@ export const cleanEmptyObj = (obj:any) => {
 export const useMount = (callback:Function) => {
   useEffect(() => {
     callback();
+    // todo 依懒项里加上callback会造成无限循环，这个和useCallback以及useMemo有关系
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 }
 /*自定义防抖hooks*/

@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from "react";
+import React, {useState, useEffect} from "react";
 import List from "./list";
 import Panel from "./panel";
 import { cleanEmptyObj, useDebounce, useMount } from "../../utils";
@@ -38,6 +38,8 @@ const ProjectListScreen = () => {
     client('projects',{data:cleanEmptyObj(debounceValue)}).then(res => {
       setListData(res)
     })
+    // todo 依懒项里加上callback会造成无限循环，这个和useCallback以及useMemo有关系
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[debounceValue])
 
   /*

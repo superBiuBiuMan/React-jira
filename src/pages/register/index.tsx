@@ -1,4 +1,4 @@
-import React, { FormEvent } from "react";
+import React from "react";
 import {useAuth} from "../../context/authContext";
 import {UserLoginInfo} from "../../types/user";
 import { Form, Input } from 'antd';

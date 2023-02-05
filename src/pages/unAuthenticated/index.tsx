@@ -17,9 +17,9 @@ const UnAuthenticated = () => {
             }
             <Divider/>
             <HrefWrapper>
-              <a onClick={() => setIsRegister(!isRegister)}>
+              <Button type={'link'} onClick={() => setIsRegister(!isRegister)}>
                 {isRegister ? '已有账号,点击登录' : '还没有账号?点击注册' }
-              </a>
+              </Button>
             </HrefWrapper>
           </ShowCard>
         </Container>

@@ -1,21 +1,18 @@
 import React from 'react';
 import ProjectList from "./pages/projectList";
 import {useAuth} from "./context/authContext";
-import {Button, Dropdown,Menu} from "antd";
+import { Dropdown ,Button } from "antd";
 import styled from "@emotion/styled";
 import Row from "../src/component/lib";
 import { ReactComponent as SoftwareLogo } from "../src/assets/svg/software-logo.svg";
 
-
-
-/*已认证页面信息*/
 const Authenticated = () => {
     const {loginOut,userInfo} = useAuth();
     const items = [
         {
             key: '1',
             label: (
-                <a onClick={ loginOut }>退出登录</a>
+                <Button type={'link'} onClick={ loginOut }>退出登录</Button>
             ),
         },
     ];
@@ -32,9 +29,9 @@ const Authenticated = () => {
                 {/*右侧*/}
                 <HeaderRight>
                     <Dropdown menu={{ items }}>
-                        <a onClick={(e) => e.preventDefault()}>
+                        <Button type={'link'} onClick={(e) => e.preventDefault()}>
                             Hi,{ userInfo.name }
-                        </a>
+                        </Button>
                     </Dropdown>
                 </HeaderRight>
             </Header>
