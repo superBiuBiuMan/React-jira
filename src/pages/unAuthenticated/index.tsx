@@ -1,19 +1,21 @@
 import React,{useState} from 'react';
 import Login from "../login";
 import Register from "../register";
-import {Button,Card,Divider} from "antd";
+import {Button, Card, Divider, Typography} from "antd";
 import styled from '@emotion/styled';
 import Logo from "assets/svg/logo.svg";
 import LeftBg from "assets/svg/left.svg";
 import RightBg from "assets/svg/right.svg";
 const UnAuthenticated = () => {
     const [isRegister,setIsRegister] = useState(false);
+    const [error,setError] = useState<Error | null>(null);
     return (
         <Container>
           <Header/>
           <ShowCard>
+            { error ? <Typography.Text type={'danger'}> { error.message } </Typography.Text> : null}
             {
-              isRegister ? <Register/> : <Login/>
+              isRegister ? <Register onError={setError}/> : <Login onError={setError}/>
             }
             <Divider/>
             <HrefWrapper>

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b623434-ae6d-4709-b52a-4be3de8379c5" name="变更" comment="fix:&#10;1.解决控制台警告和报错">
+    <list default="true" id="8b623434-ae6d-4709-b52a-4be3de8379c5" name="变更" comment="feat:&#10;1.封装useUsers和useAsync和useProject">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,6 +103,8 @@
       <workItem from="1675221820439" duration="20000" />
       <workItem from="1675578921847" duration="8864000" />
       <workItem from="1675597578417" duration="21000" />
+      <workItem from="1675597956345" duration="5650000" />
+      <workItem from="1675647047297" duration="3000" />
     </task>
     <task id="LOCAL-00001" summary="cli:&#10;1.重构">
       <created>1673529710513</created>
@@ -174,7 +176,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675587861398</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="feat:&#10;1.添加loading和error效果">
+      <created>1675599718197</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1675599718197</updated>
+    </task>
+    <task id="LOCAL-00012" summary="feat:&#10;1.封装useUsers和useAsync和useProject">
+      <created>1675604292120</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1675604292120</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +223,8 @@
     <MESSAGE value="feat:&#10;1.创建Row组件，并设置已认证页面信息头部样式" />
     <MESSAGE value="feat:&#10;1.安装dayjs库&#10;2.完善项目列表样式" />
     <MESSAGE value="fix:&#10;1.解决控制台警告和报错" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:&#10;1.解决控制台警告和报错" />
+    <MESSAGE value="feat:&#10;1.添加loading和error效果" />
+    <MESSAGE value="feat:&#10;1.封装useUsers和useAsync和useProject" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:&#10;1.封装useUsers和useAsync和useProject" />
   </component>
 </project>

@@ -1,17 +1,20 @@
 import React from 'react';
 import { useAuth } from '../../context/authContext';
-import { UserLoginInfo } from '../../types/user';
 import { Form, Input } from 'antd';
 import {LongButton} from "../unAuthenticated";
+import {useAsync} from "../../utils/useAsync";
 
-const Login = () => {
-  const { login: loginHandle } = useAuth();
-  const login = (params: UserLoginInfo) => {
-    loginHandle(params);
-  };
+const Login = ({onError}:{onError:(error:Error | null) => void}) => {
+  const { login } = useAuth();
+  const {run,isLoading} = useAsync(undefined,{throwOnError: true});
   /*点击登录*/
-  const handleSubmit = ({username,password}: {username:string,password:string}) => {
-    login({ username, password });
+  const handleSubmit = async ({username,password}: {username:string,password:string}) => {
+    try {
+      await run(login({ username, password }))
+      onError(null);
+    }catch (e) {
+      onError(e);
+    }
   };
   return (
     <Form onFinish={handleSubmit}>
@@ -22,7 +25,7 @@ const Login = () => {
         <Input type={'password'} placeholder={'请输入密码'}  />
       </Form.Item>
       <Form.Item >
-        <LongButton type={'primary'} htmlType={'submit'}>登录</LongButton>
+        <LongButton type={'primary'} htmlType={'submit'} loading={isLoading}>登录</LongButton>
       </Form.Item>
     </Form>
   );

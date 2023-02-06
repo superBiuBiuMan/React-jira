@@ -14,7 +14,12 @@ export const defaultStateValue:State<null> = {
   status: 'idle',
 }
 
-export const useAsync = <D>(init?:State<D>) => {
+export const defaultConfig = {
+  throwOnError:false,
+}
+
+export const useAsync = <D>(init?:State<D>,initConfig?:typeof defaultConfig) => {
+  const config = {...initConfig,...init};
   const [state,setState] = useState<State<D>>({
     ...defaultStateValue,
     ...init,
@@ -50,10 +55,11 @@ export const useAsync = <D>(init?:State<D>) => {
     return promiseGive
       .then((res:D) => {
         setData(res);
-        return res;//实现链式调用
+        return Promise.resolve(res);//实现链式调用
       })
       .catch(error => {
         setError(error);
+        if(config.throwOnError) return Promise.reject(error);
         return error;//实现链式调用
       })
   }

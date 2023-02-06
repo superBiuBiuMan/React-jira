@@ -1,16 +1,20 @@
 import React from "react";
 import {useAuth} from "../../context/authContext";
-import {UserLoginInfo} from "../../types/user";
 import { Form, Input } from 'antd';
 import {LongButton} from "../unAuthenticated";
-const Register = () => {
-    const { register:registerHandle } = useAuth();
-    const register = (params:UserLoginInfo) => {
-        registerHandle(params);
-    }
+import {useAsync} from "../../utils/useAsync";
+
+const Register = ({ onError } : {onError: (error:Error | null) => void}) => {
+    const { register } = useAuth();
+    const { isLoading,run } = useAsync(undefined,{throwOnError: true});
     /*点击登录*/
-    const handleSubmit = ({username,password}: {username:string,password:string}) => {
-        register({username,password})
+    const handleSubmit = async ({username,password}: {username:string,password:string}) => {
+      try {
+        await run(register({ username, password }))
+        onError(null);
+      }catch (e) {
+        onError(e);
+      }
     }
     return (
         <Form onFinish={handleSubmit}>
@@ -23,7 +27,7 @@ const Register = () => {
           </Form.Item>
 
           <Form.Item>
-            <LongButton htmlType={'submit'} type={'primary'}>注册</LongButton>
+            <LongButton htmlType={'submit'} type={'primary'} loading={isLoading}>注册</LongButton>
           </Form.Item>
         </Form>
     );

@@ -6,9 +6,9 @@ import {getToken} from "../AuthProvider";
 import http from "../utils/http";
 export interface AuthInterface {
     userInfo:UserInfo,//用户相关信息
-    login:(data:UserLoginInfo) => void;//用户登录
+    login:(data:UserLoginInfo) => Promise<any>;//用户登录
     loginOut: () => void;//用户登出
-    register: (data:UserLoginInfo) => void;//用户注册
+    register: (data:UserLoginInfo) => Promise<any>;//用户注册
 }
 
 export const AuthContext = React.createContext<AuthInterface | undefined >(undefined)
