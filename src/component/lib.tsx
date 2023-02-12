@@ -36,6 +36,7 @@ export const FullPageLoading = () => (
 /* 全屏加载错误效果 */
 export const FullErrorFallBack = ({ error }:{error:Error | null }) => (
     <FullPage>
+      1234
       <Typography.Text type={"danger"}>{ error?.message }</Typography.Text>
     </FullPage>
 )
