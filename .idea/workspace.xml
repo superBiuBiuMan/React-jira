@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b623434-ae6d-4709-b52a-4be3de8379c5" name="变更" comment="feat:&#10;1.封装useUsers和useAsync和useProject">
+    <list default="true" id="8b623434-ae6d-4709-b52a-4be3de8379c5" name="变更" comment="feat:&#10;1.登录注册页面loading和error状态处理">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,6 +105,10 @@
       <workItem from="1675597578417" duration="21000" />
       <workItem from="1675597956345" duration="5650000" />
       <workItem from="1675647047297" duration="3000" />
+      <workItem from="1675691438379" duration="3135000" />
+      <workItem from="1675734677111" duration="10000" />
+      <workItem from="1675771818540" duration="4000" />
+      <workItem from="1675820497712" duration="1000" />
     </task>
     <task id="LOCAL-00001" summary="cli:&#10;1.重构">
       <created>1673529710513</created>
@@ -190,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675604292120</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="feat:&#10;1.登录注册页面loading和error状态处理">
+      <created>1675694957179</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1675694957179</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,6 +236,7 @@
     <MESSAGE value="fix:&#10;1.解决控制台警告和报错" />
     <MESSAGE value="feat:&#10;1.添加loading和error效果" />
     <MESSAGE value="feat:&#10;1.封装useUsers和useAsync和useProject" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:&#10;1.封装useUsers和useAsync和useProject" />
+    <MESSAGE value="feat:&#10;1.登录注册页面loading和error状态处理" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:&#10;1.登录注册页面loading和error状态处理" />
   </component>
 </project>

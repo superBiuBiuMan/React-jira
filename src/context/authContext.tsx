@@ -4,6 +4,8 @@ import {UserInfo,UserLoginInfo} from "../types/user";
 import {useMount} from "../utils";
 import {getToken} from "../AuthProvider";
 import http from "../utils/http";
+import {useAsync} from "../utils/useAsync";
+import {FullErrorFallBack, FullPageLoading} from "../component/lib";
 export interface AuthInterface {
     userInfo:UserInfo,//用户相关信息
     login:(data:UserLoginInfo) => Promise<any>;//用户登录
@@ -27,6 +29,7 @@ const initUserInfo = async () => {
 
 export const AuthProvider = ({children}:{children:ReactNode}) => {
     const [userInfo, setUserInfo] = useState<UserInfo>({})
+    const {isLoading,isIdle,isError,run,error } = useAsync();
     const login = (data:UserLoginInfo) => providerAuth.login(data).then((res:any) => {
         setUserInfo(res?.user)
     })
@@ -39,8 +42,16 @@ export const AuthProvider = ({children}:{children:ReactNode}) => {
         setUserInfo(res)
     })
     useMount(() => {
-        initUserInfo().then(setUserInfo)
+        run(initUserInfo()).then(setUserInfo)
     })
+    /*显示加载效果*/
+    if(isIdle || isLoading){
+        return <FullPageLoading/>
+    }
+    /*发生错误显示错误*/
+    if(isError){
+        return <FullErrorFallBack error={error}/>
+    }
     return <AuthContext.Provider children={children} value={{userInfo,login,loginOut,register}}/>
 }
 
