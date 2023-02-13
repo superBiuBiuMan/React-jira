@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useEffect, useRef, useState} from "react";
 
 /*判断是否为布尔值*/
 export const isFalse = (value:any):boolean => value === 0 ? false : !value;
@@ -39,4 +39,20 @@ export const useDebounce = <T>(value:T,delay?:number):T => {
     }
   },[value,delay])
   return debounceValue;
+}
+
+/* 网页标题更改 */
+export const useDocumentTitle = (title:string,keepOnUnmount:boolean = true) => {
+  //获取旧标题
+  const oldTitle = useRef(document.title).current;
+  //更改新标题(副作用,使用需要使用useEffect)
+  useEffect(() => {
+    document.title = title;
+    return () => {
+      if(!keepOnUnmount) {
+        //卸载的时候执行
+        document.title = oldTitle
+      }
+    }
+  },[title,keepOnUnmount,oldTitle]);
 }

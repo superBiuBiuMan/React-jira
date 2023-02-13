@@ -6,9 +6,11 @@ import styled from '@emotion/styled';
 import Logo from "assets/svg/logo.svg";
 import LeftBg from "assets/svg/left.svg";
 import RightBg from "assets/svg/right.svg";
+import {useDocumentTitle} from "../../utils";
 const UnAuthenticated = () => {
     const [isRegister,setIsRegister] = useState(false);
     const [error,setError] = useState<Error | null>(null);
+    useDocumentTitle('请登录以继续')
     return (
         <Container>
           <Header/>

@@ -3,6 +3,7 @@ import { useAuth } from '../../context/authContext';
 import { Form, Input } from 'antd';
 import {LongButton} from "../unAuthenticated";
 import {useAsync} from "../../utils/useAsync";
+import {useDocumentTitle} from "../../utils";
 
 const Login = ({onError}:{onError:(error:Error | null) => void}) => {
   const { login } = useAuth();
@@ -16,6 +17,7 @@ const Login = ({onError}:{onError:(error:Error | null) => void}) => {
       onError(e);
     }
   };
+  useDocumentTitle('登录界面',false)
   return (
     <Form onFinish={handleSubmit}>
       <Form.Item label={'账号'} name={'username'} rules={[{ required:true,message:'请输入账号' }]}>

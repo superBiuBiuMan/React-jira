@@ -1,7 +1,7 @@
 import React, {useState } from "react";
 import List from "./list";
 import Panel from "./panel";
-import { useDebounce, useMount } from "../../utils";
+import {useDebounce, useDocumentTitle, useMount} from "../../utils";
 import {Typography} from "antd";
 import {useProject} from "../../utils/project";
 import {useUsers} from "../../utils/users";
@@ -31,8 +31,7 @@ const ProjectListScreen = () => {
 
   const {data:users} = useUsers()//请求的用户列表数据
   const {isError,isLoading,data:listData,error } = useProject(debounceValue);//请求列表数据
-
-
+  useDocumentTitle('列表界面',false);
   return (
     <div>
       {/*搜索条件*/}
