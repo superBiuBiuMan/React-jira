@@ -2,7 +2,7 @@ import React from "react";
 import { ListData,Users } from "./index";
 import {Table, TableProps} from "antd";
 import dayjs from "dayjs";
-
+import {Link} from "react-router-dom"
 export interface ListInterface extends TableProps<ListData> {
   users:Users[],//用户信息
 }
@@ -14,7 +14,10 @@ const List = ({ users,...tableProps}:ListInterface) => {
     {
       title:'名称',
       dataIndex:'name',
-      sorter: (a,b) => a.name.localeCompare(b.name)
+      render(value:any,project:any){
+        // todo 为什么一定要
+        return <Link to={String(project.id)}>{ project.name } </Link>
+      }
     },
     {
       title:'部门',
@@ -22,14 +25,14 @@ const List = ({ users,...tableProps}:ListInterface) => {
     },
     {
       title:'负责人',
-      render:(text,rowData) => (
+      render:(text:any,rowData:any) => (
           <span>{ users.find(ele => ele.id === rowData.personId)?.name }</span>
       )
     },
     {
       title:'创建时间',
       dataIndex:'created',
-      render:(text,item) => (
+      render:(text:any,) => (
           <span> { text ? dayjs(text).format('YYYY-MM-DD') : '--' } </span>
       )
     }

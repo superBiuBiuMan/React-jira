@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b623434-ae6d-4709-b52a-4be3de8379c5" name="变更" comment="feat:&#10;1.登录注册页面loading和error状态处理">
+    <list default="true" id="8b623434-ae6d-4709-b52a-4be3de8379c5" name="变更" comment="feat:&#10;1.使用useRef实现useDocumentTitle">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,6 +109,9 @@
       <workItem from="1675734677111" duration="10000" />
       <workItem from="1675771818540" duration="4000" />
       <workItem from="1675820497712" duration="1000" />
+      <workItem from="1676293453539" duration="3883000" />
+      <workItem from="1676339879946" duration="172000" />
+      <workItem from="1676375138166" duration="133000" />
     </task>
     <task id="LOCAL-00001" summary="cli:&#10;1.重构">
       <created>1673529710513</created>
@@ -201,11 +204,29 @@
       <option name="project" value="LOCAL" />
       <updated>1675694957179</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="feat:&#10;1.使用useRef实现useDocumentTitle">
+      <created>1676297367454</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1676297367454</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -237,6 +258,7 @@
     <MESSAGE value="feat:&#10;1.添加loading和error效果" />
     <MESSAGE value="feat:&#10;1.封装useUsers和useAsync和useProject" />
     <MESSAGE value="feat:&#10;1.登录注册页面loading和error状态处理" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:&#10;1.登录注册页面loading和error状态处理" />
+    <MESSAGE value="feat:&#10;1.使用useRef实现useDocumentTitle" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:&#10;1.使用useRef实现useDocumentTitle" />
   </component>
 </project>
