@@ -24,13 +24,8 @@ export interface Params {
 }
 const ProjectListScreen = () => {
   /*搜索参数*/
-  //params
-  const [,setParams] = useState<Params>({
-    name:'',
-    personId:'',
-  })
   const [keys] = useState<('name' | 'personId')[]>(['name','personId'])
-  const [params] = useUrlQueryParams(keys)
+  const [params,setParams] = useUrlQueryParams(keys)
   const debounceValue = useDebounce(params,100);
 
   const {data:users} = useUsers()//请求的用户列表数据
@@ -47,5 +42,7 @@ const ProjectListScreen = () => {
     </div>
   );
 };
+
+ProjectListScreen.whyDidYouRender = false;
 
 export default ProjectListScreen;
