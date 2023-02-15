@@ -18,7 +18,7 @@ const List = ({params,users,setParams}:Panel) => {
             <Select.Option value={""}>全部</Select.Option>
             {
               users.map(item => (
-                  <Select.Option key={item.id} value={item.id}>{ item.name }</Select.Option>
+                  <Select.Option key={item.id} value={String(item.id)}>{ item.name }</Select.Option>
               ))
             }
           </Select>
