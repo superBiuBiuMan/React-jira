@@ -5,6 +5,7 @@ import {useDebounce, useDocumentTitle, useMount} from "../../utils";
 import {Typography} from "antd";
 import {useProject} from "../../utils/project";
 import {useUsers} from "../../utils/users";
+import {useUrlQueryParams} from "../../utils/url";
 
 export interface ListData {
   id:number,
@@ -23,10 +24,13 @@ export interface Params {
 }
 const ProjectListScreen = () => {
   /*搜索参数*/
-  const [params,setParams] = useState<Params>({
+  //params
+  const [,setParams] = useState<Params>({
     name:'',
     personId:'',
   })
+  const [keys] = useState<('name' | 'personId')[]>(['name','personId'])
+  const [params] = useUrlQueryParams(keys)
   const debounceValue = useDebounce(params,100);
 
   const {data:users} = useUsers()//请求的用户列表数据

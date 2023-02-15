@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b623434-ae6d-4709-b52a-4be3de8379c5" name="变更" comment="feat:&#10;1.使用useRef实现useDocumentTitle">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/url.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/projectList/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/projectList/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,6 +113,7 @@
       <workItem from="1676293453539" duration="3883000" />
       <workItem from="1676339879946" duration="172000" />
       <workItem from="1676375138166" duration="133000" />
+      <workItem from="1676426153954" duration="18000" />
     </task>
     <task id="LOCAL-00001" summary="cli:&#10;1.重构">
       <created>1673529710513</created>
