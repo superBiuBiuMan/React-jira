@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b623434-ae6d-4709-b52a-4be3de8379c5" name="变更" comment="feat:&#10;1.使用useRef实现useDocumentTitle">
-      <change afterPath="$PROJECT_DIR$/src/utils/url.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/projectList/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/projectList/index.tsx" afterDir="false" />
+    <list default="true" id="8b623434-ae6d-4709-b52a-4be3de8379c5" name="变更" comment="feat:&#10;1.下拉选项强制转化为id">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,6 +113,8 @@
       <workItem from="1676339879946" duration="172000" />
       <workItem from="1676375138166" duration="133000" />
       <workItem from="1676426153954" duration="18000" />
+      <workItem from="1676462006445" duration="4165000" />
+      <workItem from="1676511520493" duration="64000" />
     </task>
     <task id="LOCAL-00001" summary="cli:&#10;1.重构">
       <created>1673529710513</created>
@@ -213,7 +214,28 @@
       <option name="project" value="LOCAL" />
       <updated>1676297367454</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="feat:&#10;1.完整实现useUrlQueryParams&#10;2.引入whyDidYouRender">
+      <created>1676464524546</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1676464524546</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat:&#10;1.完成Url状态管理">
+      <created>1676465836807</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1676465836807</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat:&#10;1.下拉选项强制转化为id">
+      <created>1676465951328</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1676465951328</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,6 +283,9 @@
     <MESSAGE value="feat:&#10;1.封装useUsers和useAsync和useProject" />
     <MESSAGE value="feat:&#10;1.登录注册页面loading和error状态处理" />
     <MESSAGE value="feat:&#10;1.使用useRef实现useDocumentTitle" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:&#10;1.使用useRef实现useDocumentTitle" />
+    <MESSAGE value="feat:&#10;1.完整实现useUrlQueryParams&#10;2.引入whyDidYouRender" />
+    <MESSAGE value="feat:&#10;1.完成Url状态管理" />
+    <MESSAGE value="feat:&#10;1.下拉选项强制转化为id" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:&#10;1.下拉选项强制转化为id" />
   </component>
 </project>
