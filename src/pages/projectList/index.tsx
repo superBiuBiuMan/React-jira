@@ -6,6 +6,7 @@ import {Typography} from "antd";
 import {useProject} from "../../utils/project";
 import {useUsers} from "../../utils/users";
 import {useUrlQueryParams} from "../../utils/url";
+import {useProjectsSearchParams} from "./util";
 
 export interface ListData {
   id:number,
@@ -20,14 +21,11 @@ export interface Users {
 }
 export interface Params {
   name:string,
-  personId:string | number,
+  personId:number,
 }
 const ProjectListScreen = () => {
-  /*搜索参数*/
-  const [keys] = useState<('name' | 'personId')[]>(['name','personId'])
-  const [params,setParams] = useUrlQueryParams(keys)
+  const [params,setParams] = useProjectsSearchParams();
   const debounceValue = useDebounce(params,100);
-
   const {data:users} = useUsers()//请求的用户列表数据
   const {isError,isLoading,data:listData,error } = useProject(debounceValue);//请求列表数据
   useDocumentTitle('列表界面',false);

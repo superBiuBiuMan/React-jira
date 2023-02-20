@@ -1,9 +1,10 @@
 import React from "react";
 import { Params, Users } from "./index";
 import {Input,Form,Select} from "antd"
+import {UserSelect} from "../../component/useSelect";
 
 export interface Panel {
-  params:Params,
+  params:Partial<Params>,
   users:Users[],
   setParams:(params:Panel['params']) => void
 }
@@ -14,14 +15,7 @@ const List = ({params,users,setParams}:Panel) => {
           <Input value={params.name} placeholder={'请输入要搜索的名称'}  onChange={event => setParams({ ...params,name:event.target.value })}/>
         </Form.Item>
         <Form.Item>
-          <Select value={params.personId} onChange={ value => setParams({ ...params,personId:value })}>
-            <Select.Option value={""}>全部</Select.Option>
-            {
-              users.map(item => (
-                  <Select.Option key={item.id} value={String(item.id)}>{ item.name }</Select.Option>
-              ))
-            }
-          </Select>
+          <UserSelect value={params.personId} onChange={ value => setParams({ ...params,personId:value })}/>
         </Form.Item>
       </Form>
   );

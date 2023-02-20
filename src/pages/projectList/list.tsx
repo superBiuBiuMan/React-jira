@@ -7,7 +7,6 @@ export interface ListInterface extends TableProps<ListData> {
   users:Users[],//用户信息
 }
 
-
 const List = ({ users,...tableProps}:ListInterface) => {
   /*列数据*/
   const columns = [

@@ -14,7 +14,7 @@ export interface IdSelectProps extends Omit<SelectProps,"value" | "onChange" | "
 export const IdSelect = (props:IdSelectProps) => {
   const {value,onChange,defaultOptionName,options,...originProps} = props;
   return (
-      <Select value={toNumber(value)} onChange={(value) => onChange(toNumber(value) || undefined)} {...originProps}>
+      <Select value={ options?.length ? toNumber(value) : 0 } onChange={(value) => onChange(toNumber(value) || undefined)} {...originProps}>
         {/* 默认项 */}
         {
           defaultOptionName ? <Select.Option value={0}>{ defaultOptionName }</Select.Option> : null
