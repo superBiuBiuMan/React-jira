@@ -3,13 +3,23 @@ import { ListData,Users } from "./index";
 import {Table, TableProps} from "antd";
 import dayjs from "dayjs";
 import {Link} from "react-router-dom"
+import {Pin} from "../../component/pin";
+import {useEditProject} from "../../utils/project";
 export interface ListInterface extends TableProps<ListData> {
   users:Users[],//用户信息
 }
 
 const List = ({ users,...tableProps}:ListInterface) => {
+  const { mutate } = useEditProject();
+  const pinProject = (id:number) => (checked:boolean) => mutate({id,pin:checked})
   /*列数据*/
   const columns = [
+    {
+      title:<Pin checked={true} disabled={true}/>,
+      render(value: any, project: any) {
+        return <Pin checked={project.pin} onCheckedChange={pinProject(project.id)}/>
+      }
+    },
     {
       title:'名称',
       dataIndex:'name',

@@ -1,11 +1,10 @@
-import React, {useState } from "react";
+import React  from "react";
 import List from "./list";
 import Panel from "./panel";
-import {useDebounce, useDocumentTitle, useMount} from "../../utils";
+import {useDebounce, useDocumentTitle } from "../../utils";
 import {Typography} from "antd";
 import {useProject} from "../../utils/project";
 import {useUsers} from "../../utils/users";
-import {useUrlQueryParams} from "../../utils/url";
 import {useProjectsSearchParams} from "./util";
 
 export interface ListData {
@@ -14,6 +13,7 @@ export interface ListData {
   name:string,
   organization:string,//部门
   created:string,//创建时间
+  pin:boolean,//是否加入收藏
 }
 export interface Users {
   id:number,//唯一标识
