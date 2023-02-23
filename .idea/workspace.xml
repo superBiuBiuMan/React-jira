@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b623434-ae6d-4709-b52a-4be3de8379c5" name="变更" comment="feat:&#10;1.抽象user-select组件选择用户">
-      <change afterPath="$PROJECT_DIR$/src/component/pin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/projectList/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/projectList/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/projectList/list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/projectList/list.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/http.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/http.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/project.ts" afterDir="false" />
+    <list default="true" id="8b623434-ae6d-4709-b52a-4be3de8379c5" name="变更" comment="feat:&#10;1.用useEdit编辑项目(收藏测试后发现未更新)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,6 +116,7 @@
       <workItem from="1676462006445" duration="4165000" />
       <workItem from="1676511520493" duration="64000" />
       <workItem from="1676896510727" duration="6437000" />
+      <workItem from="1677029882182" duration="42000" />
     </task>
     <task id="LOCAL-00001" summary="cli:&#10;1.重构">
       <created>1673529710513</created>

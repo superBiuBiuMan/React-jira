@@ -25,9 +25,8 @@ export interface Params {
 }
 const ProjectListScreen = () => {
   const [params,setParams] = useProjectsSearchParams();
-  const debounceValue = useDebounce(params,100);
   const {data:users} = useUsers()//请求的用户列表数据
-  const {isError,isLoading,data:listData,error } = useProject(debounceValue);//请求列表数据
+  const {isError,isLoading,data:listData,error,retry } = useProject(useDebounce(params,100));//请求列表数据
   useDocumentTitle('列表界面',false);
   return (
     <div>
@@ -36,7 +35,7 @@ const ProjectListScreen = () => {
       {/*错误提示*/}
       { isError ? <Typography.Text type={'danger'}> { error?.message } </Typography.Text> : null }
       {/*列表信息*/}
-      <List dataSource={listData || []} users={users || []} loading={isLoading} />
+      <List refresh={retry} dataSource={listData || []} users={users || []} loading={isLoading} />
     </div>
   );
 };

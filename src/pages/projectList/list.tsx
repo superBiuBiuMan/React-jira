@@ -7,11 +7,14 @@ import {Pin} from "../../component/pin";
 import {useEditProject} from "../../utils/project";
 export interface ListInterface extends TableProps<ListData> {
   users:Users[],//用户信息
+  refresh?: () => void;
 }
 
-const List = ({ users,...tableProps}:ListInterface) => {
+const List = ({ users,refresh,...tableProps}:ListInterface) => {
   const { mutate } = useEditProject();
-  const pinProject = (id:number) => (checked:boolean) => mutate({id,pin:checked})
+  const pinProject = (id:number) => (checked:boolean) => mutate({id,pin:checked}).then(() => {
+    refresh && refresh()
+  })
   /*列数据*/
   const columns = [
     {

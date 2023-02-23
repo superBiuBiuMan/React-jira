@@ -25,6 +25,8 @@ export const useAsync = <D>(init?:State<D>,initConfig?:typeof defaultConfig) => 
     ...init,
   })
 
+  const [retry,setRetry] = useState(() => () => {})
+
   /*设置数据*/
   const setData = (data:D) => {
     setState({
@@ -44,10 +46,16 @@ export const useAsync = <D>(init?:State<D>,initConfig?:typeof defaultConfig) => 
   }
 
   /*运行传入的promise*/
-  const run = (promiseGive:Promise<D>) => {
+  const run = (promiseGive:Promise<D>,runConfig?:{ retry: () => Promise<D> }) => {
     if(!promiseGive || !promiseGive.then) {
       throw new Error('请传入Promise类型数据')
     }
+    setRetry(() => () => {
+      console.log("执行了retry")
+      if(runConfig?.retry){
+        run(runConfig.retry(),runConfig)
+      }
+    })
     setState({
       ...state,
       status:'loading',
@@ -74,5 +82,6 @@ export const useAsync = <D>(init?:State<D>,initConfig?:typeof defaultConfig) => 
     setState,
     setData,
     setError,
+    retry,
   }
 }
