@@ -1,4 +1,5 @@
 import {useState} from "react";
+import {useMountedRef} from "./url";
 
 export type Status = 'idle' | 'loading' | 'error' | 'success';
 /*泛型指明类型*/
@@ -20,6 +21,7 @@ export const defaultConfig = {
 
 export const useAsync = <D>(init?:State<D>,initConfig?:typeof defaultConfig) => {
   const config = {...initConfig,...init};
+  const mountedRef = useMountedRef();
   const [state,setState] = useState<State<D>>({
     ...defaultStateValue,
     ...init,
@@ -62,7 +64,9 @@ export const useAsync = <D>(init?:State<D>,initConfig?:typeof defaultConfig) => 
     })
     return promiseGive
       .then((res:D) => {
-        setData(res);
+        if(mountedRef.current){
+          setData(res);
+        }
         return Promise.resolve(res);//实现链式调用
       })
       .catch(error => {

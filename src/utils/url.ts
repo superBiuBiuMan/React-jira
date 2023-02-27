@@ -1,6 +1,7 @@
 import {URLSearchParamsInit, useSearchParams} from "react-router-dom";
-import {useMemo} from "react";
+import {useEffect, useMemo} from "react";
 import {cleanEmptyObj} from "./index";
+import {useRef} from "react";
 /*
 *   返回页面当中url,指定的键值对的
 * */
@@ -19,4 +20,18 @@ export const useUrlQueryParams = <K extends string>(keys:K[]) => {
        return setSearchParams(o);
      }
   ] as const
+}
+
+/*
+*  返回组件的状态,如果没有挂载或者已经卸载,则返回false,
+* */
+export const useMountedRef = () => {
+  const mountedRef = useRef(false);
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;//组件卸载
+    }
+  })
+  return mountedRef
 }
