@@ -13,7 +13,7 @@ export const useUrlQueryParams = <K extends string>(keys:K[]) => {
         return keys.reduce((pre,key) => {
           return {...pre,[key]:searchParams.get(key) ?? ''}
         },{} as {[key in K]:string})
-      },[searchParams]),
+      },[searchParams,keys]),
      (params:Partial<{[key in K] : unknown}>) => {
        //console.log('啊啊',params,searchParams,Object.fromEntries(searchParams))
         const o = cleanEmptyObj({...Object.fromEntries(searchParams),...params}) as URLSearchParamsInit

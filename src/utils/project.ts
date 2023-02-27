@@ -1,5 +1,5 @@
 import {useAsync} from "./useAsync";
-import {useEffect} from "react";
+import {useCallback, useEffect} from "react";
 import {cleanEmptyObj} from "./index";
 import {ListData, Params} from "../pages/projectList";
 import {useHttp} from "./http";
@@ -12,14 +12,12 @@ export const useProject = (params?:Partial<Params>) => {
   /*
   *  当搜索条件发生变化的时候,就更新
   * */
-  const fetchProjects = () => client('projects',{data:cleanEmptyObj(params)})
+  const fetchProjects = useCallback(() => client('projects',{data:cleanEmptyObj(params)}),[client,params])
   useEffect( () => {
     run(fetchProjects(),{
       retry:fetchProjects
     })
-    //// todo 依懒项里加上callback会造成无限循环，这个和useCallback以及useMemo有关系
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[params])
+  },[params,run,fetchProjects])
 
   return result;
 }

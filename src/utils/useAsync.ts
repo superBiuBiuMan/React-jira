@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useCallback, useState} from "react";
 import {useMountedRef} from "./url";
 
 export type Status = 'idle' | 'loading' | 'error' | 'success';
@@ -30,25 +30,25 @@ export const useAsync = <D>(init?:State<D>,initConfig?:typeof defaultConfig) => 
   const [retry,setRetry] = useState(() => () => {})
 
   /*设置数据*/
-  const setData = (data:D) => {
-    setState({
-      data,
-      error:null,
-      status:'success'
-    })
-  }
-
+  const setData = useCallback((data:D) => {
+        setState({
+          data,
+          error:null,
+          status:'success'
+        })
+      }
+  ,[setState])
   /*设置失败*/
-  const setError = (error:Error) => {
+  const setError = useCallback((error:Error) => {
     setState({
       data:null,
       error,
       status:'error',
     })
-  }
+  },[setState])
 
   /*运行传入的promise*/
-  const run = (promiseGive:Promise<D>,runConfig?:{ retry: () => Promise<D> }) => {
+  const run = useCallback((promiseGive:Promise<D>,runConfig?:{ retry: () => Promise<D> }) => {
     if(!promiseGive || !promiseGive.then) {
       throw new Error('请传入Promise类型数据')
     }
@@ -58,23 +58,25 @@ export const useAsync = <D>(init?:State<D>,initConfig?:typeof defaultConfig) => 
         run(runConfig.retry(),runConfig)
       }
     })
-    setState({
-      ...state,
-      status:'loading',
+    setState((prevState) => {
+      return {
+        ...prevState,
+        status: 'loading',
+      }
     })
     return promiseGive
-      .then((res:D) => {
-        if(mountedRef.current){
-          setData(res);
-        }
-        return Promise.resolve(res);//实现链式调用
-      })
-      .catch(error => {
-        setError(error);
-        if(config.throwOnError) return Promise.reject(error);
-        return error;//实现链式调用
-      })
-  }
+    .then((res:D) => {
+      if(mountedRef.current){
+        setData(res);
+      }
+      return Promise.resolve(res);//实现链式调用
+    })
+    .catch(error => {
+      setError(error);
+      if(config.throwOnError) return Promise.reject(error);
+      return error;//实现链式调用
+    })
+  },[config.throwOnError,mountedRef,setState,setData,setError])
 
   return {
     isIdle: state.status === 'idle',//是否处于未加载状态

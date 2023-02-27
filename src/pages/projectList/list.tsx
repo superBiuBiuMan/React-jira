@@ -27,7 +27,6 @@ const List = ({ users,refresh,...tableProps}:ListInterface) => {
       title:'名称',
       dataIndex:'name',
       render(value:any,project:any){
-        // todo 为什么一定要
         return <Link to={String(project.id)}>{ project.name } </Link>
       }
     },
