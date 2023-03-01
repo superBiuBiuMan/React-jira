@@ -23,7 +23,11 @@ export interface Params {
   name:string,
   personId:number,
 }
-const ProjectListScreen = () => {
+export interface Props {
+  modalOperation:JSX.Element,
+}
+const ProjectListScreen = (props:Props) => {
+  const { modalOperation } = props;
   const [params,setParams] = useProjectsSearchParams();
   const {data:users} = useUsers()//请求的用户列表数据
   const {isError,isLoading,data:listData,error,retry } = useProject(useDebounce(params,100));//请求列表数据
@@ -31,7 +35,11 @@ const ProjectListScreen = () => {
   return (
     <div>
       {/*搜索条件*/}
-      <Panel params={params} setParams = {setParams} users={users || []}/>
+      <div style={{display:"flex"}}>
+        <Panel params={params} setParams = {setParams} users={users || []}/>
+        {modalOperation}
+      </div>
+
       {/*错误提示*/}
       { isError ? <Typography.Text type={'danger'}> { error?.message } </Typography.Text> : null }
       {/*列表信息*/}

@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b623434-ae6d-4709-b52a-4be3de8379c5" name="变更" comment="feat:&#10;1.用useEdit编辑项目(收藏测试后发现未更新)">
+    <list default="true" id="8b623434-ae6d-4709-b52a-4be3de8379c5" name="变更" comment="fix:&#10;1.用useCallback解决无限渲染问题">
+      <change afterPath="$PROJECT_DIR$/src/component/projectModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/component/projectPopover.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/authenticated/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/authenticated/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/projectList/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/projectList/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,6 +121,10 @@
       <workItem from="1676511520493" duration="64000" />
       <workItem from="1676896510727" duration="6437000" />
       <workItem from="1677029882182" duration="42000" />
+      <workItem from="1677503028418" duration="3408000" />
+      <workItem from="1677545525570" duration="68000" />
+      <workItem from="1677587605044" duration="4274000" />
+      <workItem from="1677634947244" duration="145000" />
     </task>
     <task id="LOCAL-00001" summary="cli:&#10;1.重构">
       <created>1673529710513</created>
@@ -251,7 +259,21 @@
       <option name="project" value="LOCAL" />
       <updated>1676900438608</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="fix:&#10;1.阻止在已卸载的组件上赋值">
+      <created>1677505418073</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1677505418073</updated>
+    </task>
+    <task id="LOCAL-00021" summary="fix:&#10;1.用useCallback解决无限渲染问题">
+      <created>1677506999675</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1677506999675</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,6 +326,8 @@
     <MESSAGE value="feat:&#10;1.下拉选项强制转化为id" />
     <MESSAGE value="feat:&#10;1.实现Id-Select解决Id难题" />
     <MESSAGE value="feat:&#10;1.抽象user-select组件选择用户" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:&#10;1.抽象user-select组件选择用户" />
+    <MESSAGE value="fix:&#10;1.阻止在已卸载的组件上赋值" />
+    <MESSAGE value="fix:&#10;1.用useCallback解决无限渲染问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:&#10;1.用useCallback解决无限渲染问题" />
   </component>
 </project>
