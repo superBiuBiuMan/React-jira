@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b623434-ae6d-4709-b52a-4be3de8379c5" name="变更" comment="fix:&#10;1.用useCallback解决无限渲染问题">
-      <change afterPath="$PROJECT_DIR$/src/component/projectModal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/component/projectPopover.tsx" afterDir="false" />
+    <list default="true" id="8b623434-ae6d-4709-b52a-4be3de8379c5" name="变更" comment="feat:&#10;1.开发创建项目基本页面和使用状态提升">
+      <change afterPath="$PROJECT_DIR$/src/utils/useUndo.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/authenticated/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/authenticated/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/projectList/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/projectList/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,6 +122,8 @@
       <workItem from="1677545525570" duration="68000" />
       <workItem from="1677587605044" duration="4274000" />
       <workItem from="1677634947244" duration="145000" />
+      <workItem from="1677676726539" duration="4393000" />
+      <workItem from="1677721956915" duration="374000" />
     </task>
     <task id="LOCAL-00001" summary="cli:&#10;1.重构">
       <created>1673529710513</created>
@@ -273,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677506999675</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="feat:&#10;1.开发创建项目基本页面和使用状态提升">
+      <created>1677677343338</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1677677343338</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,6 +334,7 @@
     <MESSAGE value="feat:&#10;1.抽象user-select组件选择用户" />
     <MESSAGE value="fix:&#10;1.阻止在已卸载的组件上赋值" />
     <MESSAGE value="fix:&#10;1.用useCallback解决无限渲染问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:&#10;1.用useCallback解决无限渲染问题" />
+    <MESSAGE value="feat:&#10;1.开发创建项目基本页面和使用状态提升" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:&#10;1.开发创建项目基本页面和使用状态提升" />
   </component>
 </project>
