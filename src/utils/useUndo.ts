@@ -70,18 +70,8 @@ const UseUndo = <T>(initData:T) => {
       goList:[],
       present:initData,
   })
-  //const [state,setState] = useState<{
-  //  backList:T[],//过去的记录
-  //  present:T,//现在的值,
-  //  goList:T[],//前面的记录
-  //}>({
-  //  backList:[],
-  //  goList:[],
-  //  present:initData,
-  //})
   const [canBack,setCanBack] = useState(() => state.backList.length > 0);//是否可以后退
   const [canGo,setCanGo] = useState(() => state.goList.length > 0);//是否可以前进
-
   /* 执行返回 */
   const execBack = useCallback(() => dispatch({type:TypeOperation.back}),[dispatch])
 
