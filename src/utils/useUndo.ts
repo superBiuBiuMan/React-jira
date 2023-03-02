@@ -1,23 +1,28 @@
-import {useCallback, useState} from "react";
+import {useCallback, useReducer, useState} from "react";
 
-const UseUndo = <T>(initData:T) => {
-  const [state,setState] = useState<{
-    backList:T[],//过去的记录
-    present:T,//现在的值,
-    goList:T[],//前面的记录
-  }>({
-    backList:[],
-    goList:[],
-    present:initData,
-  })
-  const [canBack,setCanBack] = useState(() => state.backList.length > 0);//是否可以后退
-  const [canGo,setCanGo] = useState(() => state.goList.length > 0);//是否可以前进
+export enum TypeOperation {
+  go='go',
+  back='back',
+  set='set',
+  reset='reset',
+}
 
-  /* 执行返回 */
-  const execBack = useCallback(() => {
-    setState((currentState) => {
-      if(!canBack) return currentState;
-      const { goList:oldGoList,backList:oldBackList } = currentState;
+export interface State<T> {
+  backList:T[],//过去的记录
+  present:T,//现在的值,
+  goList:T[],//前面的记录
+}
+
+export interface Action<T> {
+  newPresent?:T,
+  type: TypeOperation,
+}
+const unDoReducer = <T>(state:State<T>,action:Action<T>) => {
+  const {type,newPresent} = action;
+  const { goList:oldGoList,backList:oldBackList,present:oldPresent } = state;
+  switch (type){
+    case "back": {
+      if(oldBackList.length ===0 ) return state;
       const present = oldBackList[oldBackList.length-1];
       const backList = oldBackList.slice(0,oldGoList.length - 1);
       const goList = [...oldGoList,present];
@@ -26,14 +31,9 @@ const UseUndo = <T>(initData:T) => {
         backList,
         present,
       }
-    })
-  },[])
-
-  /* 执行前进 */
-  const execGo = useCallback(() => {
-    setState((currentState) => {
-      if(!canGo) return currentState;
-      const { goList:oldGoList,backList:oldBackList } = currentState;
+    }
+    case "go": {
+      if(oldGoList.length === 0) return state;
       const present = oldGoList[0];
       const goList = oldGoList.slice(1);
       const backList = [...oldBackList,present];
@@ -42,35 +42,57 @@ const UseUndo = <T>(initData:T) => {
         backList,
         present,
       }
-    })
-  },[])
-
-  /* 设置值 */
-  const set = useCallback((newData:T) => {
-    setState((currentState) => {
-      const { goList:oldGoList,backList:oldBackList,present:oldPresent } = currentState;
-      if(newData === oldPresent) return currentState;
+    }
+    case "reset":{
+      return {
+        goList:[],
+        backList:[],
+        present:newPresent,
+      }
+    }
+    case "set": {
+      if(newPresent === oldPresent) return state;
       const backList = [...oldBackList,oldPresent];
       return {
         goList:[],
         backList,
-        present:newData,
+        present:newPresent,
       }
-    })
-  },[])
+    }
+    default: return state;
+  }
+}
 
+
+const UseUndo = <T>(initData:T) => {
+  const [state,dispatch] = useReducer(unDoReducer,{
+      backList:[],
+      goList:[],
+      present:initData,
+  })
+  //const [state,setState] = useState<{
+  //  backList:T[],//过去的记录
+  //  present:T,//现在的值,
+  //  goList:T[],//前面的记录
+  //}>({
+  //  backList:[],
+  //  goList:[],
+  //  present:initData,
+  //})
+  const [canBack,setCanBack] = useState(() => state.backList.length > 0);//是否可以后退
+  const [canGo,setCanGo] = useState(() => state.goList.length > 0);//是否可以前进
+
+  /* 执行返回 */
+  const execBack = useCallback(() => dispatch({type:TypeOperation.back}),[dispatch])
+
+  /* 执行前进 */
+  const execGo = useCallback(() => dispatch({type:TypeOperation.go}),[dispatch])
+
+  /* 设置值 */
+  const set = useCallback((newData:T) => dispatch({type:TypeOperation.set,newPresent:newData}),[dispatch])
 
   /* 重置 */
-  const reset = useCallback(() => {
-    setState((currentState) => {
-      const { goList,backList } = currentState;
-      return {
-        goList:[],
-        backList:[],
-        present:initData,
-      }
-    })
-  },[])
+  const reset = useCallback((newData:T) => dispatch({type:TypeOperation.reset,newPresent:newData}),[dispatch])
 
   return [
       state,
