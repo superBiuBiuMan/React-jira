@@ -40,7 +40,7 @@ const ProjectListScreen = () => {
       {/*搜索条件*/}
       <div style={{display:"flex"}}>
         <Panel params={params} setParams = {setParams} users={users || []}/>
-        <Button type={'primary'} onClick={() => dispatch(projectListSliceActions.openProjectModal())}>创建项目123</Button>
+        <Button type={'primary'} onClick={() => dispatch(projectListSliceActions.openProjectModal())}>创建项目</Button>
         {/*{modalOperation}*/}
       </div>
 
