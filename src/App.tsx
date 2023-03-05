@@ -1,10 +1,13 @@
-import React from 'react';
-import UnAuthenticated from "./pages/unAuthenticated";
-import Authenticated from "./pages/authenticated";
+import React,{lazy,Suspense} from 'react';
 import {useAuth} from "./context/authContext";
 import './App.css';
 import {Boundary} from "./component/errorBoundary";
-import {FullErrorFallBack} from "./component/lib";
+import {FullErrorFallBack, FullPageLoading} from "./component/lib";
+//import UnAuthenticated from "./pages/unAuthenticated";
+//import Authenticated from "./pages/authenticated";
+
+const UnAuthenticated = lazy(() => import("./pages/unAuthenticated"))
+const Authenticated = lazy(() => import("./pages/authenticated"))
 
 function App() {
   const {userInfo} = useAuth();
@@ -12,9 +15,11 @@ function App() {
   return (
     <div className='App'>
       <Boundary fallBackRender={FullErrorFallBack}>
-        {
-          userInfo && Object.keys(userInfo).length ? <Authenticated/> : <UnAuthenticated/>
-        }
+        <Suspense fallback={FullPageLoading}>
+          {
+            userInfo && Object.keys(userInfo).length ? <Authenticated/> : <UnAuthenticated/>
+          }
+        </Suspense>
       </Boundary>
     </div>
   );
