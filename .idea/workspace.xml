@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b623434-ae6d-4709-b52a-4be3de8379c5" name="变更" comment="feat:&#10;1.开发创建项目基本页面和使用状态提升">
-      <change afterPath="$PROJECT_DIR$/src/utils/useUndo.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="8b623434-ae6d-4709-b52a-4be3de8379c5" name="变更" comment="feat:&#10;1.使用reduxjs/toolkit管理模态框" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +14,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -279,7 +277,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677677343338</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="feat:&#10;1.安装react-redux和@reduxjs/tookkit">
+      <created>1678004314238</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1678004314238</updated>
+    </task>
+    <task id="LOCAL-00024" summary="feat:&#10;1.使用reduxjs/toolkit管理模态框">
+      <created>1678009760022</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1678009760022</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,8 +322,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="cli:&#10;1.重构" />
-    <MESSAGE value="feat:&#10;1.useContext的书写&#10;2.localStorage信息的存储" />
     <MESSAGE value="cli:&#10;1.添加ant-design组件" />
     <MESSAGE value="ci:&#10;1.添加ant-design组件" />
     <MESSAGE value="chore:&#10;1.添加ant-design组件" />
@@ -335,6 +345,8 @@
     <MESSAGE value="fix:&#10;1.阻止在已卸载的组件上赋值" />
     <MESSAGE value="fix:&#10;1.用useCallback解决无限渲染问题" />
     <MESSAGE value="feat:&#10;1.开发创建项目基本页面和使用状态提升" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:&#10;1.开发创建项目基本页面和使用状态提升" />
+    <MESSAGE value="feat:&#10;1.安装react-redux和@reduxjs/tookkit" />
+    <MESSAGE value="feat:&#10;1.使用reduxjs/toolkit管理模态框" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:&#10;1.使用reduxjs/toolkit管理模态框" />
   </component>
 </project>
