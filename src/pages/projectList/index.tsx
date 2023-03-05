@@ -2,11 +2,12 @@ import React  from "react";
 import List from "./list";
 import Panel from "./panel";
 import {useDebounce, useDocumentTitle } from "../../utils";
-import {Typography} from "antd";
+import {Button, Typography} from "antd";
 import {useProject} from "../../utils/project";
 import {useUsers} from "../../utils/users";
 import {useProjectsSearchParams} from "./util";
-
+import {projectListSliceActions, selectProjectModalOpen} from "./projectList.slice";
+import {useSelector,useDispatch} from "react-redux";
 export interface ListData {
   id:number,
   personId:number,
@@ -23,11 +24,13 @@ export interface Params {
   name:string,
   personId:number,
 }
-export interface Props {
-  modalOperation:JSX.Element,
-}
-const ProjectListScreen = (props:Props) => {
-  const { modalOperation } = props;
+//export interface Props {
+//  modalOperation:JSX.Element,
+//}
+//props:Props
+const ProjectListScreen = () => {
+  //const { modalOperation } = props;
+  const dispatch = useDispatch();
   const [params,setParams] = useProjectsSearchParams();
   const {data:users} = useUsers()//请求的用户列表数据
   const {isError,isLoading,data:listData,error,retry } = useProject(useDebounce(params,100));//请求列表数据
@@ -37,7 +40,8 @@ const ProjectListScreen = (props:Props) => {
       {/*搜索条件*/}
       <div style={{display:"flex"}}>
         <Panel params={params} setParams = {setParams} users={users || []}/>
-        {modalOperation}
+        <Button type={'primary'} onClick={() => dispatch(projectListSliceActions.openProjectModal())}>创建项目123</Button>
+        {/*{modalOperation}*/}
       </div>
 
       {/*错误提示*/}

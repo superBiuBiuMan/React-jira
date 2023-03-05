@@ -9,9 +9,14 @@ import {BrowserRouter as Router, Navigate} from "react-router-dom";
 import {Routes,Route} from "react-router";
 import ProjectPopover from "../../component/projectPopover";
 import ProjectModal from "../../component/projectModal";
+import {useSelector,useDispatch} from "react-redux";
+import {projectListSliceActions, selectProjectModalOpen} from "../projectList/projectList.slice";
 const Authenticated = () => {
-  const [showModal,setShowModal] = useState(false);//是否可见对话框
-  const ModalOperation = <Button style={{padding:0}} onClick={() => setShowModal(true)} type={'link'}>创建项目</Button>
+  //const [showModal,setShowModal] = useState(false);//是否可见对话框
+  const showModal = useSelector(selectProjectModalOpen);//等同于 const showModal = useSelector((state) => state.projectList.projectModalOpen)
+  console.log('结果是',showModal)
+  const dispatch = useDispatch();
+  const ModalOperation = <Button style={{padding:0}} onClick={() => dispatch(projectListSliceActions.openProjectModal())} type={'link'}>创建项目</Button>
   return (
       <>
         {/*头部*/}
@@ -22,10 +27,7 @@ const Authenticated = () => {
         <Main>
           <Router>
             <Routes>
-              <Route path={'/projects'}
-                     element={
-                        <ProjectList modalOperation={ModalOperation}/>
-                     }
+              <Route path={'/projects'} element={<ProjectList/>}
               />
               <Route path={'/projects/:projectId/*'} element={<Project/>}/>
               <Route path={'/'} element={<Navigate to={'/projects'}/>}/>
@@ -33,7 +35,7 @@ const Authenticated = () => {
           </Router>
         </Main>
         {/* 编辑和创建对话框 */}
-        <ProjectModal visible={showModal} cancel={() => setShowModal(false)}/>
+        <ProjectModal visible={showModal} cancel={() => dispatch(projectListSliceActions.closeProjectModal())}/>
       </>
   );
 };
